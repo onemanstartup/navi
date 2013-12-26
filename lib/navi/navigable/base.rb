@@ -3,8 +3,8 @@ require 'navi/navigable/instance_methods'
 module Navi
   module Navigable
     module Base
+      cattr_accessor :navigable_config
       def navigable(options={})
-        cattr_accessor :navigable_config
         self.navigable_config = options
         has_one Navi.navigator, :as => :navigable
         include Navi::Navigable::InstanceMethods
